@@ -81,4 +81,9 @@ Sys.setenv(
 
 # Problems
 
-Here, we layout know problems, unless changes to the source code of RStudio or R are made.
+Here, we layout current know problems.
+
+The shims do not find the root of the project (e.g. running `quarto` in a nested directory of the repo).
+
+Maybe implement [`rprojroot::find_root`](https://rprojroot.r-lib.org/reference/find_root.html).
+
