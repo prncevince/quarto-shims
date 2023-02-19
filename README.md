@@ -15,7 +15,7 @@ This is kind of similar to my [R Shims](https://github.com/prncevince/r-shims) p
 
 The quarto CLI installation location & shim configuration directory IS opinionated. 
 
-# Support Platforms & Setups
+# Supported Platforms & Setups
 
 Right now, this is just being used on macOS. 
 
