@@ -67,9 +67,9 @@ Test it out:
 Rscript -e 'quarto::quarto_path()'
 ```
 
-However, within an Rstudio session, `PATH` is not inherited (unless RStudio is invoked from the terminal, e.g. with [r-shims](https://github.com/prncevince/r-shims/#usage)).
+However, within an RStudio session, `PATH` is not inherited (unless RStudio is invoked from the terminal, e.g. with [r-shims](https://github.com/prncevince/r-shims/#usage)).
 
-Thus, it is suggested to explicitly set the `QUARTO_PATH` variable within the project `.Rprofile` for the [`{quarto}`](https://quarto-dev.github.io/quarto-r/) to find the right path within all RStudio sessions. 
+Thus, it is suggested to explicitly set the `QUARTO_PATH` variable within the project `.Rprofile` for [`{quarto}`](https://quarto-dev.github.io/quarto-r/) to find the right path within all RStudio sessions. 
 
 ```r
 Sys.setenv(
