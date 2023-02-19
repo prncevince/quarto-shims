@@ -55,11 +55,11 @@ export PATH="$HOME/.quarto/shims:$PATH"
 
 # Usage
 
-Restart your terminal session. The shims on your PATH should be able to use the local quarto CLI when in the root of your repo.
+Restart your terminal session. The shims on your `PATH` should be able to use the local quarto CLI when in the root of your repo.
 
 ## R
 
-If you're running quarto from R via the [`{quarto}`](https://quarto-dev.github.io/quarto-r/) package, you don't even need to set the `QUARTO_PATH` environment variable now. 
+If you're running quarto within R within a terminal session, via the [`{quarto}`](https://quarto-dev.github.io/quarto-r/) package, you don't even need the `QUARTO_PATH` environment variable set. 
 
 Test it out:
 
@@ -67,9 +67,18 @@ Test it out:
 Rscript -e 'quarto::quarto_path()'
 ```
 
+However, within an Rstudio session, `PATH` is not inherited (unless RStudio is invoked from the terminal, e.g. with [r-shims](https://github.com/prncevince/r-shims/#usage)).
+
+Thus, it is suggested to explicitly set the `QUARTO_PATH` variable within the project `.Rprofile` for the [`{quarto}`](https://quarto-dev.github.io/quarto-r/) to find the right path within all RStudio sessions. 
+
+```r
+Sys.setenv(
+  QUARTO_PATH = paste0(
+    "./quarto-cli/quarto-", utils::read.table(".quarto-version")[1, ], "-macos/bin/quarto"
+  )
+)
+```
+
 # Problems
 
-Here, we layout know system problems that are unavoidable, unless changes to the source code of RStudio or R are made.
-
-## Mac
-
+Here, we layout know problems, unless changes to the source code of RStudio or R are made.
