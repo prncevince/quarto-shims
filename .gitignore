@@ -1,0 +1,9 @@
+.quarto-version
+/quarto-cli
+.Rversion
+.Rhistory
+R-*
+.Rproj.user
+*.Rproj
+*.html
+.DS_Store
