@@ -59,14 +59,12 @@ Restart your terminal session. The shims on your PATH should be able to use the 
 
 ## R
 
-Also, if you're running quarto from R via the [`{quarto}`](https://quarto-dev.github.io/quarto-r/) package, add a command to your `.Rprofile`.
+If you're running quarto from R via the [`{quarto}`](https://quarto-dev.github.io/quarto-r/) package, you don't even need to set the `QUARTO_PATH` environment variable now. 
 
-```r
-Sys.setenv(
-  QUARTO_PATH = paste0(
-    "./quarto-cli/quarto-", utils::read.table(".quarto-version")[1, ], "-macos/bin/quarto" 
-  )
-)
+Test it out:
+
+```sh
+Rscript -e 'quarto::quarto_path()'
 ```
 
 # Problems
