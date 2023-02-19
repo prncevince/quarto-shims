@@ -27,16 +27,17 @@ Create a `.quarto-version` file containing the full `x.y.z` version of the quart
 
 ## Mac
 
-Install `wget` with `brew`, e.g. `brew install wget`
+Install `wget` with `brew`, e.g. `brew install wget`. Then run [download.sh](download.sh), the contents of which are below:
 
 ```sh
 QUARTO_VERSION=$(/bin/cat .quarto-version)
+QUARTOPATH=./.quarto-cli
 wget \
-  -P ./quarto-cli \
+  -P ${QUARTOPATH} \
   https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-macos.tar.gz
-mkdir -p ./quarto-cli/quarto-${QUARTO_VERSION}-macos
-tar -xf ./quarto-cli/quarto-${QUARTO_VERSION}-macos.tar.gz -C ./quarto-cli/quarto-${QUARTO_VERSION}-macos
-rm ./quarto-cli/quarto-${QUARTO_VERSION}-macos.tar.gz
+mkdir -p ${QUARTOPATH}/quarto-${QUARTO_VERSION}-macos
+tar -xf ${QUARTOPATH}/quarto-${QUARTO_VERSION}-macos.tar.gz -C ${QUARTOPATH}/quarto-${QUARTO_VERSION}-macos
+rm ${QUARTOPATH}/quarto-${QUARTO_VERSION}-macos.tar.g
 ```
 
 # Download & Install Shims

@@ -1,6 +1,6 @@
 #! /usr/bin/env sh
 if [ -f .quarto-version ]; then
-  QUARTOPATH=./quarto-cli/
+  QUARTOPATH=./.quarto-cli/
   QUARTO_VERSION=$(/bin/cat .quarto-version)
   QUARTO_PATHS=$(/bin/ls "$QUARTOPATH" | /usr/bin/grep "$QUARTO_VERSION")
   if [[ -z "$QUARTO_PATHS" ]]; then
