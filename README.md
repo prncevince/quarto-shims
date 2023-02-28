@@ -1,14 +1,5 @@
 # Quarto Shims
 
-- [Supported Platforms & Setups](#supported-platforms--setups)
-- [Download & Install Quarto](#download--install-quarto)
-  - [Mac](#mac)
-- [Download & Install Shims](#download--install-shims)
-  - [Mac](#mac-1)
-- [Usage](#usage)
-  - [R](#r)
-- [Problems](#problems)
-
 Since there's no real standard for installing [Quarto](https://quarto.org) via command line utilities, the point of this is to put your version of the [Quarto CLI](https://github.com/quarto-dev/quarto-cli/releases) on your path, e.g. so that you can install whatever version of it that you want & use it for your project.
 
 This is kind of similar to my [R Shims](https://github.com/prncevince/r-shims) project, so it's been inspired by other executable versioning projects.  
@@ -19,6 +10,18 @@ The quarto CLI installation location & shim configuration directory IS opinionat
 
 Right now, this is just being used on macOS. 
 
+# Prerequisites 
+
+This isn't full core Unix, we'll use `wget` for the install in [download.sh](download.sh). 
+
+The shims use R with [{rprojroot}](https://rprojroot.r-lib.org) to find the project's base directory where our `.quarto-version` file will live. This will let us run `quarto` commands from directories inside the project's root directory.  
+
+## Mac
+
+Install `wget` with `brew`, e.g. `brew install wget`. 
+
+Install `R` & the [{rprojroot}](https://rprojroot.r-lib.org) package, e.g. `install.packages('rprojroot')`. 
+
 # Download & Install Quarto
 
 Create a `.quarto-version` file containing the full `x.y.z` version of the quarto-cli in the root of your repo. 
@@ -27,7 +30,7 @@ Create a `.quarto-version` file containing the full `x.y.z` version of the quart
 
 ## Mac
 
-Install `wget` with `brew`, e.g. `brew install wget`. Then run [download.sh](download.sh), the contents of which are below:
+Run [download.sh](download.sh) (e.g. `source ./download.sh`), the contents of which are below:
 
 ```sh
 QUARTO_VERSION=$(/bin/cat .quarto-version)
@@ -79,12 +82,4 @@ Sys.setenv(
   )
 )
 ```
-
-# Problems
-
-Here, we layout current know problems.
-
-The shims do not find the root of the project (e.g. running `quarto` in a nested directory of the repo).
-
-Maybe implement [`rprojroot::find_root`](https://rprojroot.r-lib.org/reference/find_root.html).
 
