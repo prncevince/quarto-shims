@@ -1,6 +1,6 @@
 #! /usr/bin/env sh
 quarto_dotfile_root() {
-  Rscript -e "
+  Rscript --no-init-file -e "
     dotfile <- '.quarto-version' \n
     criterion <- rprojroot::root_criterion(
       function(path) file.exists(file.path(path, dotfile)), paste0('has ', dotfile)
